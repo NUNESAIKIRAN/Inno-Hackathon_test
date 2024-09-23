@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Validation</title>
+</head>
+<body>
+    <h1>Validation Page</h1>
+
+    <form method="POST" action='/validation_email'>
+        <label for="email">Email:</label><br>
+        <input type="text" name="email" id='email' value="{{email}}"><br><br>
+        <input type="submit" value='Validate Email'>
+    </form>
+
+    {% if email is not none %}
+        <h2>Validation Result</h2>
+        <p>Email: {{ email }}</p>
+        <p>Valid: {{ "Yes" if is_valid else "No" }}</p>
+    {% endif %}
+</body>
+</html>

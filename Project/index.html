@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Regex Tester</h1>
+    <form method="POST" action="/results">
+        <label for="test_string">Test String:</label><br>
+        <input type="text" id="test_string" name= "test_string" value = '{{test_string}}' required><br><br>
+
+        <label for="regex">Regex:</label><br>
+        <input type="text" id="regex" name="regex" value="{{regex}}" required><br><br>
+
+        <input type="submit",value="Test Regex">
+
+    </form>
+
+    {% if matches %}
+        <h2>Test mathes</h2>
+        <ul>
+            {% for match in matches %}
+                <li>{{match}}</li>
+            {% endfor %}
+        </ul>
+        {%else%}
+        <p>No matches found or invalid regex pattern.</p>
+    {%endif%}
+    <p></p>
+</body>
+</html>
